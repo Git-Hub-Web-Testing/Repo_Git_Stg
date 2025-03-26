@@ -18,7 +18,7 @@
     "Data_View_Type" : "text"
   }, {
     "Step_Number" : 2,
-    "Step_Description" : "Execute testcase",
+    "Step_Description" : "ETC",
     "Control_Type" : "WebElement",
     "Locator_Type" : "Global SQA",
     "Locator_Value" : "ff2e364a-9a01-4a0c-95c8-bf247ed934b7",
@@ -35,7 +35,7 @@
     "Data_View_Type" : "text"
   }, {
     "Step_Number" : 3,
-    "Step_Description" : "Execute function",
+    "Step_Description" : "EF",
     "Control_Type" : "WebElement",
     "Locator_Type" : "Id",
     "Locator_Value" : "",
