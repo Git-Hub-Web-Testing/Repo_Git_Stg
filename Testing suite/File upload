@@ -1,7 +1,7 @@
 {
   "testSteps" : [ {
     "Step_Number" : 1,
-    "Step_Description" : "GO TO URL",
+    "Step_Description" : "GO TO URL 123",
     "Control_Type" : "WebElement",
     "Locator_Type" : "",
     "Locator_Value" : "",
