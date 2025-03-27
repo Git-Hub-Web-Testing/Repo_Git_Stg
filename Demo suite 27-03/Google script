@@ -1,7 +1,7 @@
 {
   "testSteps" : [ {
     "Step_Number" : 1,
-    "Step_Description" : "Launch the URL",
+    "Step_Description" : "Launch the URL google script",
     "Control_Type" : "WebElement",
     "Locator_Type" : "",
     "Locator_Value" : "",
