@@ -18,7 +18,7 @@
     "Data_View_Type" : "text"
   }, {
     "Step_Number" : 2,
-    "Step_Description" : "Execute function",
+    "Step_Description" : "Execute function 123",
     "Control_Type" : "WebElement",
     "Locator_Type" : "Id",
     "Locator_Value" : "",
