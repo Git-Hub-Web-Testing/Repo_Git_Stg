@@ -1,7 +1,7 @@
 {
   "testSteps" : [ {
     "Step_Number" : 1,
-    "Step_Description" : "go to url",
+    "Step_Description" : "go to url  EF and ETC_Suite Pull",
     "Control_Type" : "WebElement",
     "Locator_Type" : "",
     "Locator_Value" : "",
@@ -35,7 +35,7 @@
     "Data_View_Type" : "text"
   }, {
     "Step_Number" : 3,
-    "Step_Description" : "Execute function",
+    "Step_Description" : "Execute function  EF and ETC_Suite Pull",
     "Control_Type" : "WebElement",
     "Locator_Type" : "Id",
     "Locator_Value" : "",
