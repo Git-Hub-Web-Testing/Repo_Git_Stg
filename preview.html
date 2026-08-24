@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qyrus Retry on Failure Test App</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 40px; background:#f7f8fa; }
+  .card { max-width: 700px; margin:auto; background:white; padding:30px; border-radius:10px; box-shadow:0 2px 12px #0001; }
+  .status { padding:14px; border-radius:6px; margin:20px 0; font-weight:bold; }
+  .neutral { background:#eef1f5; }
+  .fail { background:#ffe5e5; color:#b00020; }
+  .pass { background:#e5f7e9; color:#137333; }
+  button { padding:10px 18px; margin-right:8px; border:0; border-radius:6px; cursor:pointer; }
+  #reset { background:#ddd; }
+  #next { background:#35c96b; color:white; }
+  #next:disabled { opacity:.45; cursor:not-allowed; }
+  code { background:#f0f0f0; padding:2px 5px; border-radius:4px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h2>Qyrus Retry on Failure – Test App</h2>
+  <p>This page intentionally fails on the first validation and passes on the second validation.</p>
+
+  <div id="status" class="status neutral">Status: Not validated</div>
+
+  <p><b>Attempt:</b> <span id="attempt">0</span></p>
+  <p><b>Expected behavior:</b> First attempt = FAIL, second attempt = PASS.</p>
+
+  <button id="validate">Validate</button>
+  <button id="next" disabled>Proceed to Further Step</button>
+  <button id="reset">Reset Test State</button>
+</div>
+
+<script>
+const KEY = "qyrus_retry_test_attempt";
+let attempt = Number(localStorage.getItem(KEY) || 0);
+
+function render() {
+  document.getElementById("attempt").textContent = attempt;
+}
+
+document.getElementById("validate").addEventListener("click", () => {
+  attempt++;
+  localStorage.setItem(KEY, String(attempt));
+
+  const status = document.getElementById("status");
+  const next = document.getElementById("next");
+
+  if (attempt === 1) {
+    status.className = "status fail";
+    status.textContent = "FAIL: Intentional first-attempt failure";
+    next.disabled = true;
+  } else {
+    status.className = "status pass";
+    status.textContent = "PASS: Validation succeeded on retry";
+    next.disabled = false;
+  }
+  render();
+});
+
+document.getElementById("next").addEventListener("click", () => {
+  document.getElementById("status").className = "status pass";
+  document.getElementById("status").textContent = "PASS: Further step executed successfully";
+});
+
+document.getElementById("reset").addEventListener("click", () => {
+  localStorage.removeItem(KEY);
+  attempt = 0;
+  document.getElementById("status").className = "status neutral";
+  document.getElementById("status").textContent = "Status: Not validated";
+  document.getElementById("next").disabled = true;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
